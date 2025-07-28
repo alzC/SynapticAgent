@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 SynapticAgent
 
-## Getting Started
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![Edge Runtime](https://img.shields.io/badge/Edge%20Runtime-Compatible-success)](https://vercel.com/docs/concepts/functions/edge-functions)
 
-First, run the development server:
+Un framework TypeScript moderne pour la création de systèmes multi-agents hiérarchisés, où les agents collaborent et s'adaptent comme des neurones dans un réseau neuronal.
+
+## 🌟 Caractéristiques
+
+- **🤖 Supervision Intelligente**
+
+  - Routage automatique des requêtes vers les agents spécialisés
+  - Gestion hiérarchique des tâches
+  - Prise de décision contextuelle
+
+- **🔧 Outils Modulaires**
+
+  - Calculatrice sécurisée
+  - Service météo simulé
+  - Architecture extensible pour nouveaux outils
+
+- **⚡ Performance**
+
+  - Compatible Edge Runtime
+  - Optimisation des tokens
+  - Logs configurables
+
+- **🔒 Sécurité**
+  - Évaluation mathématique sécurisée
+  - Validation des entrées
+  - Gestion des erreurs robuste
+
+## 🚀 Démarrage Rapide
+
+1. **Installation**
+
+```bash
+git clone https://github.com/alzC/SynapticAgent.git
+cd SynapticAgent
+npm install
+```
+
+2. **Configuration**
+
+```bash
+cp .env.example .env.local
+# Ajoutez votre clé API Groq dans .env.local
+```
+
+3. **Lancement**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── agents/       # Agents spécialisés
+├── tools/        # Outils modulaires
+├── supervisor/   # Système de supervision
+├── components/   # Interface utilisateur
+└── types/        # Définitions TypeScript
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Technologies
 
-## Learn More
+- **Frontend**: Next.js, React, TypeScript
+- **IA**: LangChain, Groq
+- **Runtime**: Edge Compatible
+- **Style**: TailwindCSS
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ API
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Endpoint Principal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+POST /api/chat
+{
+  "message": "Calcule 2 + 2"
+}
+```
 
-## Deploy on Vercel
+### Réponse
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+	"agentName": "calculator",
+	"response": "Le résultat est 4",
+	"toolUsed": "calculator"
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Consultez notre [guide de contribution](CONTRIBUTING.md) pour commencer.
+
+## 📈 Roadmap
+
+- [ ] Ajout de nouveaux agents spécialisés
+- [ ] Support pour des outils externes
+- [ ] Interface d'administration
+- [ ] Monitoring des performances
+- [ ] Tests E2E
+
+## 📄 Licence
+
+[MIT](LICENSE) © [AlzC](https://github.com/alzC)
+
+## ⭐ Support
+
+Si vous trouvez ce projet utile, pensez à lui mettre une étoile sur GitHub !
+
+---
+
+Fait avec ❤️ et 🤖 en France
