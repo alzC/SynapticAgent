@@ -34,24 +34,31 @@ interface WorkflowResponse {
   toolUsed?: string;
 }
 
-export const runAgentWorkflow = async (input: string): Promise<WorkflowResponse> => {
-  const supervisor = createSupervisorChain();
-  const decision = await supervisor.invoke({ input });
-
+export const runAgentWorkflow = async (input: string, forcedAgent?: string): Promise<WorkflowResponse> => {
   let agentType: string | undefined = undefined;
   let finalResponse = "";
 
-  if (decision instanceof AIMessage && isString(decision.content)) {
-    agentType = decision.content.trim().toLowerCase();
-    finalResponse = decision.content.trim();
-  } else if (isString(decision)) {
-    agentType = decision.trim().toLowerCase();
-    finalResponse = decision.trim();
+  // Si un agent est forcé, l'utiliser directement
+  if (forcedAgent && ['calculator', 'weather'].includes(forcedAgent)) {
+    agentType = forcedAgent;
+    console.log(`🎯 Agent forcé: ${forcedAgent}`);
   } else {
-    return {
-      agentName: "supervisor",
-      response: "Réponse du superviseur non comprise.",
-    };
+    // Sinon, utiliser le superviseur pour décider
+    const supervisor = createSupervisorChain();
+    const decision = await supervisor.invoke({ input });
+
+    if (decision instanceof AIMessage && isString(decision.content)) {
+      agentType = decision.content.trim().toLowerCase();
+      finalResponse = decision.content.trim();
+    } else if (isString(decision)) {
+      agentType = decision.trim().toLowerCase();
+      finalResponse = decision.trim();
+    } else {
+      return {
+        agentName: "supervisor",
+        response: "Réponse du superviseur non comprise.",
+      };
+    }
   }
 
   if (agentType === "calculator") {
